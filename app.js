@@ -15,11 +15,11 @@ app.get("/UpTime/:unixTime", (req, res) => {
   const minutes = Math.floor((timeDiff % (60 * 60)) / 60);
   const seconds = timeDiff % 60;
 
-  const formattedTime = `**${days.toString().padStart(3, "0")}**D **${hours
-    .toString()
-    .padStart(2, "0")}**H **${minutes
-    .toString()
-    .padStart(2, "0")}**M **${seconds.toString().padStart(2, "0")}**S`;
+  const formattedTime =
+    `\`${days.toString().padStart(3, "0")}d\` ` +
+    `\`${hours.toString().padStart(2, "0")}h\` ` +
+    `\`${minutes.toString().padStart(2, "0")}m\` ` +
+    `\`${seconds.toString().padStart(2, "0")}s\``;
 
   res.send(formattedTime);
 });
@@ -27,14 +27,16 @@ app.get("/UpTime/:unixTime", (req, res) => {
 //Unix Formatter
 app.get("/FormatTime/:unixTime", (req, res) => {
   const unixTime = parseInt(req.params.unixTime);
-  const date = new Date(unixTime * 1000);
+  const days = Math.floor(unixTime / (60 * 60 * 24));
+  const hours = Math.floor((unixTime % (60 * 60 * 24)) / (60 * 60));
+  const minutes = Math.floor((unixTime % (60 * 60)) / 60);
+  const seconds = unixTime % 60;
 
-  const days = String(Math.floor(unixTime / 86400)).padStart(3, "0");
-  const hours = String(date.getUTCHours()).padStart(2, "0");
-  const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-  const seconds = String(date.getUTCSeconds()).padStart(2, "0");
-
-  const formattedTime = `**${days}**D **${hours}**H **${minutes}**M **${seconds}**S`;
+  const formattedTime =
+    `\`${days.toString().padStart(3, "0")}d\` ` +
+    `\`${hours.toString().padStart(2, "0")}h\` ` +
+    `\`${minutes.toString().padStart(2, "0")}m\` ` +
+    `\`${seconds.toString().padStart(2, "0")}s\``;
 
   res.send(formattedTime);
 });
