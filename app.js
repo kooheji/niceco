@@ -59,19 +59,19 @@ app.get("/Features", (req, res) => {
 app.get("/Flags/:number", (req, res) => {
   const number = parseInt(req.params.number);
   const roles = {
-    0: "Discord Employee",
-    1: "Partnered Server Owner",
-    2: "HypeSquad Events Member",
-    3: "Bug Hunter Level 1",
-    6: "House Bravery Member",
-    7: "House Brilliance Member",
-    8: "House Balance Member",
-    9: "Early Nitro Supporter",
-    14: "Bug Hunter Level 2",
-    16: "Verified Bot",
-    17: "Early Verified Bot Developer",
-    18: "Moderator Programs Alumni",
-    22: "Active Developer",
+    0: "{valueAtPosition({BGVAR_emoji}),[60]}",
+    1: "{valueAtPosition({BGVAR_emoji}),[61]}",
+    2: "{valueAtPosition({BGVAR_emoji}),[62]}",
+    3: "{valueAtPosition({BGVAR_emoji}),[63]}",
+    6: "{valueAtPosition({BGVAR_emoji}),[64]}",
+    7: "{valueAtPosition({BGVAR_emoji}),[65]}",
+    8: "{valueAtPosition({BGVAR_emoji}),[66]}",
+    9: "{valueAtPosition({BGVAR_emoji}),[67]}",
+    14: "{valueAtPosition({BGVAR_emoji}),[68]}",
+    16: "{valueAtPosition({BGVAR_emoji}),[69]}",
+    17: "{valueAtPosition({BGVAR_emoji}),[70]}",
+    18: "{valueAtPosition({BGVAR_emoji}),[71]}",
+    22: "{valueAtPosition({BGVAR_emoji}),[72]}",
   };
 
   let userRoles = [];
